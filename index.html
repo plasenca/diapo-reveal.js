@@ -1,40 +1,78 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+	<title>reveal.js</title>
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/night.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+	<style>
+		.make-it-pop {
+			filter: drop-shadow(0 0 20px purple);
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-state="make-it-pop">Slide 1</section>
+			<section>
+				<section>Slide 2.1</section>
+				<section>Slide 2.2</section>
+			</section>
+			<section>Slide 3</section>
+			<section data-markdown>
+				<textarea data-template>
+					## Slide 1
+					A paragraph with some text and a [link](https://hakim.se).
+					---
+					## Slide 2
+					Hola Mundo
+					---
+					## Slide 3
+					Hola Mundo
+				</textarea>
+			</section>
+			<section data-markdown="README.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n"
+				data-separator-notes="^Note:" data-charset="iso-8859-15">
+				<!--
+        Note that Windows uses `\r\n` instead of `\n` as its linefeed character.
+        For a regex that supports all operating systems, use `\r?\n` instead of `\n`.
+    -->
+			</section>
 		</div>
+	</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+		Reveal.on('make-it-pop', () => {
+			console.log('make-it-pop');
+		});
+
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
 </html>
